@@ -2,8 +2,10 @@
   <div class="home">
     <h1>Image Classifier</h1>
 
-    <input type="file" @change="onFileChange" />
-    <button @click="uploadImage">Upload Image</button>
+    <div class="uploadForm">
+      <input type="file" @change="onFileChange" ref="fileInput" />
+      <button @click="uploadImage">Upload Image</button>
+    </div>
 
     <!-- Image display area -->
     <div v-if="uploadedImage">
@@ -11,7 +13,7 @@
       <img :src="uploadedImage" alt="Uploaded Image" style="max-width: 500px;"/>
     </div>
 
-    <p v-if="prediction">The Prediction is: 
+    <p class="message" v-if="prediction">The Prediction is: 
       <span v-if="prediction == 1"> Dog</span>
       <span v-if="prediction == 2"> Non-Dog</span>
     </p>
@@ -69,6 +71,10 @@ export default {
         this.uploadedImage = null;
         this.selectedFile = null;
         this.prediction = null;
+
+        if (this.$refs.fileInput) {
+          this.$refs.fileInput.value = '';
+        }
       },
     }
 }
@@ -77,6 +83,25 @@ export default {
 <style>
   .home {
     width: 80%;
-    margin: 5rem auto;
+    margin: 2rem auto;
+  }
+
+  .uploadForm {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  .uploadForm button {
+    max-width: 7rem;
+    margin-top: 0.3rem;
+  }
+
+  .message {
+    margin: 1rem 0;
+  }
+
+  .message span {
+    font-weight: bold;
   }
 </style>
