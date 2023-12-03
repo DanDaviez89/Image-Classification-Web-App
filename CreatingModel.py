@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 from keras.preprocessing.image import img_to_array
 
-IMAGE_WIDTH, IMAGE_HEIGHT, CHANNELS = 256, 256, 3
+IMAGE_WIDTH, IMAGE_HEIGHT, CHANNELS = 126, 126, 3
 EPOCHS = 4  # You can adjust this
 
 # Function to load images and labels

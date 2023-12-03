@@ -2,7 +2,8 @@
   <div class="home">
     <h1>Homepage</h1>
 
-    <button @click="test">Click me</button>
+    <input type="file" @change="onFileChange" />
+    <button @click="uploadImage">Upload Image</button>
   </div>
 </template>
 
@@ -12,20 +13,33 @@ import axios from 'axios'
 export default {
     data() {
         return {
-
+            selectedFile: null,
         };
     },
     methods: {
-      async test() {
-        try {
-            const response = await axios.get('http://127.0.0.1:8000/test/');
-
-            console.log(response.data.message)
-        } catch (error) {
-          console.log(error)
+      onFileChange(e) {
+        this.selectedFile = e.target.files[0];
+      },
+      async uploadImage() {
+        if (!this.selectedFile) {
+          alert('Please select an image first!');
+          return;
         }
 
-        this.userInput = ''
+        const formData = new FormData();
+        formData.append('image', this.selectedFile);
+
+        try {
+          const response = await axios.post('http://127.0.0.1:8000/upload/', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+
+          console.log('Image uploaded:', response.data);
+        } catch (error) {
+          console.error('Upload error:', error);
+        }
       }
     }
 }

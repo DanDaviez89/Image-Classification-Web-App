@@ -11,7 +11,7 @@ def delete_corrupt_images(directory):
                 print(f'Deleting corrupt file: {filename}')
                 os.remove(os.path.join(directory, filename))
 
-def resize_images(input_directory, output_directory, max_images=5000, size=(256, 256)):
+def resize_images(input_directory, output_directory, max_images=5000, size=(126, 126)):
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
     
@@ -36,5 +36,10 @@ def resize_images(input_directory, output_directory, max_images=5000, size=(256,
 # Example usage
 #delete_corrupt_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\person')
 
-#resize_images('C:\\Users\\Owner\\Downloads\\DogCats\\PetImages\\Dog', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\dogs', max_images=5000)
-#resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\person', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\DogCats\\PetImages\\Dog', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\dogs', max_images=5000)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\person', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\cat', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\motorbike', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\fruit', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\car', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
+resize_images('C:\\Users\\Owner\\Downloads\\randomImages\\natural_images\\airplane', 'C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Web Dev\\Machine Learning Apps\\Image Classification\\Images\\non-dogs', max_images=800)
